@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
 import Card from "../UI/Card/Card";
-// import avatar from "../../images/avatars/image-amyrobson.png";
+import currentUserAvatar from "../../images/avatars/image-amyrobson.png";
 import classes from "./AddComment.module.css";
 import Button from "../UI/Button/Button";
 
 const currentUser = JSON.parse(localStorage.getItem("user"));
-const avatar = currentUser.image.webp
-console.log(avatar);
 
 const AddComment = (props) => {
 	const [comment, setComment] = useState('')
@@ -33,7 +31,7 @@ const AddComment = (props) => {
 
 	return (
 		<Card className={classes["add-comment"]}>
-			<img src={avatar} alt="" className={classes.img} />
+			<img src={currentUserAvatar} alt="" className={classes.img} />
 			<textarea
 				className={classes.textarea}
 				name="message"

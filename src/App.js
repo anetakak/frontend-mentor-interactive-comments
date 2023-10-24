@@ -92,8 +92,7 @@ function App() {
 		setIsLoggedIn(true);
 	}, [comments.currentUser]);
 
-	// const currentUser = localStorage.getItem("currentUser");
-	// console.log(currentUser);
+	// const currentUser = JSON.parse(localStorage.getItem("user"));
 
 	const idArray = comments.comments.map((comment) => comment.id);
 	// console.log(idArray);
@@ -115,13 +114,14 @@ function App() {
 				<Comment
 					key={comment.id}
 					nickname={comment.user.username}
+					avatar={comment.user.image.png}
 					content={comment.content}
 					createdat={comment.createdAt}
 					score={comment.score}
 				/>
 			))}
 			<AddComment
-				// avatar={"xx"}
+				// avatar={avatar}
 				// currentUser={currentUser}
 				onSend={sendHandler}
 				idArray={idArray}
