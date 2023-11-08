@@ -1,7 +1,6 @@
 .card {
-    margin: 1em auto;
-    width: 80%;
-	min-width: 200px;
+    margin-bottom: 1em;
+	min-width: 250px;
 	max-width: 700px;
     background-color: hsl(228, 33%, 97%);
 	border-radius: 8px;

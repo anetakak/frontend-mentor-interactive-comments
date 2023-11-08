@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 
 import Card from "../UI/Card/Card";
-import currentUserAvatar from "../../images/avatars/image-amyrobson.png";
 import classes from "./AddComment.module.css";
 import Button from "../UI/Button/Button";
 
-const currentUser = JSON.parse(localStorage.getItem("user"));
-
 const AddComment = (props) => {
 	const [comment, setComment] = useState('')
-	const id = Math.max(...props.idArray)
+	const currentUser = props.currentUser
+	const currentUserAvatar = currentUser.image.png
 
 
 	const clickHandler = () => {
 		if (comment.trim().length > 0) {
 			props.onSend({
-				"id": id + 1,
 				"content": comment,
 				"createdAt": "now",
 				"score": 0,
 				"user": {...currentUser},
-				"replies": []
+				// "replies": []
 			  })
 			setComment('')
 		}
@@ -39,7 +36,7 @@ const AddComment = (props) => {
 				id="message"
 				value={comment}
 				onChange={changeHandler}></textarea>
-			<Button className={classes['send-btn']} onClick={clickHandler}>send</Button>
+			<Button className={classes['send-btn']} onClick={clickHandler}>{props.buttonName}</Button>
 		</Card>
 	);
 };

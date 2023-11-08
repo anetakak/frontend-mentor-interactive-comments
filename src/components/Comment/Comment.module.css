@@ -1,21 +1,22 @@
 .comment {
+	
 	display: grid;
-	grid-template-columns: 5em 1fr 5em;
+	/* grid-template-columns: 5em 1fr 10em; */
+	grid-template-columns: 4em 1fr 9em;
 	grid-template-rows: 2em 1fr 2em;
 	gap: 0.5em;
 	padding: 0.8em;
-	
 }
 
 .header {
 	grid-column: 1/-1;
 	grid-row: 1/2;
 	display: flex;
-    align-items: center;
+	align-items: center;
 	/* margin: 0.5em 0; */
 }
 .img {
-    width: 2em;
+	width: 2em;
 }
 .nickname {
 	margin: 0 1em;
@@ -50,6 +51,7 @@
 	font-weight: 500;
 } */
 .score-number {
+	font-weight: 500;
 	color: hsl(238, 40%, 52%);
 }
 .score-btn {
@@ -64,47 +66,42 @@
 .score-btn:hover {
 	color: black;
 }
-.reply {
+.action {
 	grid-column: 3/4;
 	grid-row: 3/4;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
-    padding: 0.5em;
-	font-weight: 700;
-    font-size: 1.6rem;
+	/* margin-right: 0.5em; */
+}
+.reply-btn, .edit-btn {
 	color: hsl(238, 40%, 52%);
-    background-color: transparent;
-    border: none;
-	transition: color .3s;
-	cursor: pointer;
 }
-.reply img {
-    margin: 0.4em;
-	width: 1rem;
-	height: 1rem;
+.delete-btn {
+	color: hsl(358, 79%, 66%);
 }
-.reply:hover {
-	color: hsla(238, 40%, 52%, 50%);
-}
+/* .delete-btn svg path {
+	fill: red;
+} */
 
+.delete-btn:hover {
+	color: hsl(358, 79%, 66%, 50%);
+}
 /* MEDIA */
-@media (min-width: 576px) {
+@media (min-width: 610px) {
 	.comment {
-		display: grid;
 		text-align: center;
-		grid-template-columns: 2em 1fr 5em;
+		grid-template-columns: 2em 1fr 9em;
 	}
 	.header {
 		grid-column: 2/3;
 		grid-row: 1/2;
-		display: flex;
 	}
 
 	.content {
 		grid-column: 2/-1;
 		grid-row: 2/-1;
-        margin: 0.5em;
+		margin: 0.5em;
 	}
 
 	.score {
@@ -117,7 +114,7 @@
 	.score p {
 		padding: 0.2em 0.5em;
 	}
-	.reply {
+	.action {
 		grid-column: 3/4;
 		grid-row: 1/2;
 		align-items: flex-start;

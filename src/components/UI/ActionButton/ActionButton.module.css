@@ -1,0 +1,12 @@
+.action-btn {
+	padding: 0.5em;
+	font-weight: 700;
+	font-size: 1.5rem;
+	background-color: transparent;
+	border: none;
+	transition: color 0.3s;
+	cursor: pointer;
+}
+.action-btn:hover {
+	color: hsla(238, 40%, 52%, 50%);
+}
