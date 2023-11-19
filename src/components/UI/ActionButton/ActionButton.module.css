@@ -1,7 +1,7 @@
 .action-btn {
 	padding: 0.5em;
 	font-weight: 700;
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	background-color: transparent;
 	border: none;
 	transition: color 0.3s;
@@ -9,4 +9,12 @@
 }
 .action-btn:hover {
 	color: hsla(238, 40%, 52%, 50%);
+}
+.action-btn:hover svg path {
+	fill: hsla(238, 40%, 52%, 50%);
+}
+@media (min-width: 350px) {
+	.action-btn {
+		font-size: 1.5rem;
+	}
 }

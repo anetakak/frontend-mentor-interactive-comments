@@ -5,7 +5,7 @@ const Reply = ({ ...props }) => {
 	return (
 		<div className={classes.reply}>
 			<div className={classes.line}></div>
-			<div className={classes.comment}><Comment {...props} /></div>
+			<div className={classes.comment}><Comment key={props.id} {...props} /></div>
 		</div>
 	);
 };

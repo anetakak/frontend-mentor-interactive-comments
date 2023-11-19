@@ -40,7 +40,13 @@
 .cancel-btn {
 	background-color: hsl(211, 10%, 45%);
 }
+.cancel-btn:hover {
+	background-color: hsla(211, 10%, 45%, 50%);
+}
 
 .delete-btn {
 	background-color: hsl(358, 79%, 66%);
+}
+.delete-btn:hover {
+	background-color: hsla(358, 79%, 66%, 50%);
 }

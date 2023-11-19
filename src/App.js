@@ -3,8 +3,6 @@ import "./App.css";
 import Attribution from "./components/Attribution/Attribution";
 import Comment from "./components/Comment/Comment";
 import AddComment from "./components/AddComment/AddComment";
-import Modal from "./components/UI/Modal/Modal";
-import CommentArea from "./components/CommentArea/CommentArea";
 
 function App() {
 	const [comments, setComments] = useState({
@@ -82,35 +80,33 @@ function App() {
 
 	const currentUser = comments.currentUser;
 
-	const idComments = comments.comments.map((comment) => comment.id);
-	const idReplies = comments.comments.map((comment)=> comment.replies.map((reply) => reply.id))
-	const idArray = idComments.concat(...idReplies);
-
-	const currentId =  Math.max(...idArray) + 1;
+	// const idComments = comments.comments.map((comment) => comment.id);
+	// const idReplies = comments.comments.map((comment)=> comment.replies.map((reply) => reply.id))
+	// const allIdArray = idComments.concat(...idReplies);
+	// const idMax = Math.max(...allIdArray);
+	// const nextId = idMax + 1;
+	// console.log(nextId);
 
 	const sendHandler = (comment) => {
 		setComments((prevComments) => ({
 			currentUser: prevComments.currentUser,
-			comments: [...prevComments.comments, {id: currentId, ...comment}],
+			comments: [...prevComments.comments, {...comment, replies: []}],
 		}));
 	};
 
 	const sendReplyHandler = (currentCommentId, comment) => {
-		// console.log(id, comment);
-		// const currentCommentIndex = comments.comments.findIndex(comment => comment.id === currentCommentId);
-		// console.log(`odpowiedz do: ${currentCommentIndex}`);
-		const commentWithId = {id: currentId, ...comment}
-		const commentToReply = comments.comments.filter((comment) => comment.id === currentCommentId)
-		commentToReply[0].replies = commentToReply[0].replies.concat(commentWithId);
-		console.log(...commentToReply);
+		console.log('sendReplyHandler');
+		// console.log(currentCommentId, comment);
+		// const commentWithId = {id: currentId, ...comment}
+		// const commentToReply = comments.comments.filter((comment) => comment.id === currentCommentId)
+		// commentToReply[0].replies = commentToReply[0].replies.concat(commentWithId);
+		// console.log(...commentToReply);
 
-		setComments((prevComments) => ({
-			currentUser: prevComments.currentUser,
-			comments: [...commentToReply, ...prevComments.comments.filter((comment) => comment.id !== currentCommentId)]
-			}))
+		// setComments((prevComments) => ({
+		// 	currentUser: prevComments.currentUser,
+		// 	comments: [...commentToReply, ...prevComments.comments.filter((comment) => comment.id !== currentCommentId)]
+		// 	}))
 	}
-	console.log(comments);
-
 
 	return (
 		<div className="container">
@@ -118,6 +114,7 @@ function App() {
 				<Comment
 					key={comment.id}
 					id={comment.id}
+					comment={comment}
 					nickname={comment.user.username}
 					avatar={comment.user.image.png}
 					content={comment.content}
@@ -125,27 +122,13 @@ function App() {
 					score={comment.score}
 					currentUser={currentUser}
 					replies={comment.replies}
-					onSendReply={sendReplyHandler}
+					// onSendReply={sendReplyHandler}
 				/>
 			))}
-			{/* {comments.comments.map((comment) => (
-				<Comment
-					key={comment.id}
-					nickname={comment.user.username}
-					avatar={comment.user.image.png}
-					content={comment.content}
-					createdat={comment.createdAt}
-					score={comment.score}
-					currentUser={currentUser}
-					replies={comment.replies}
-				/>
-			))} */}
 			<AddComment
-				// avatar={avatar}
 				currentUser={currentUser}
 				onSend={sendHandler}
-				idArray={idArray}
-				buttonName={'send'}
+				buttonContent={'send'}
 			/>
 			<Attribution />
 		</div>

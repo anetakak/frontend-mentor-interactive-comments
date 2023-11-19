@@ -4,13 +4,11 @@
 .line {
     margin-right: 1em;
     width: 2px;
-    background-color: hsla(211, 10%, 45%, 20%);
-    transform: translateY(-0.5em);
+    background-color: hsl(223, 19%, 93%);
 }
-/* .comment {
-    display: flex;
-    flex-direction: column;
-} */
+.comment {
+    width: 100%;
+}
 @media (min-width: 768px) {
     .line {
         margin: 0 2em;

@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: 4em 1fr 7em;
     grid-template-rows: 2fr 1fr;
+    margin-top: 0.5em;
     text-align: center;
-    /* margin: 1em auto; */
     background-color: #fff;
 }
 
