@@ -40,12 +40,12 @@ Users should be able to:
 
 ### Built with
 
+- [React](https://reactjs.org/) - JS library
+- CSS Modules
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- CSS Modules
-- [React](https://reactjs.org/) - JS library
 
 ### What I learned
 
